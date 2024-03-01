@@ -16,7 +16,7 @@ module.exports = async (kernel) => {
         venv: "env",
         env: { "PYTORCH_ENABLE_MPS_FALLBACK": "1" },
         message: [
-          "python3 demo.py --device " + device + " --weights checkpoints/DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth"
+          "python demo.py --device " + device + " --weights checkpoints/DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth"
         ],
         on: [{ "event": "/http:\/\/[0-9.:]+/", "done": true }]
       }
