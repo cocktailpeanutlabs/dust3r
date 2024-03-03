@@ -6,7 +6,8 @@ module.exports = async (kernel) => {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://github.com/naver/dust3r --recursive app",
+          //"git clone https://github.com/naver/dust3r --recursive app",
+          "git clone https://github.com/cocktailpeanut/dust3r --recursive app",
         ]
       }
     }, {
