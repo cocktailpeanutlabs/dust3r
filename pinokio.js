@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  version: "1.1",
+  version: "1.2",
   title: "dust3r",
   description: "Geometric 3D Vision Made Easy https://dust3r.europe.naverlabs.com/",
   icon: "icon.png",
