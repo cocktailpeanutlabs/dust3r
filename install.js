@@ -1,6 +1,7 @@
 const config = require("./config.js")
 const pre = require("./pre.js")
 module.exports = async (kernel) => {
+  let torch = pre(config, kernel)
   let script = {
     run: [{
       method: "shell.run",
@@ -16,6 +17,8 @@ module.exports = async (kernel) => {
         venv: "env",
         path: "app",
         message: [
+          "{{gpu === 'nvidia' ? 'conda install -y nvidia/label/cuda-12.1.0::cuda' : null}}",
+          torch,
           "pip install -r requirements.txt"
         ],
       }
@@ -43,10 +46,6 @@ module.exports = async (kernel) => {
         html: "Click the 'start' tab to get started!"
       }
     }]
-  }
-  let pre_command = pre(config, kernel)
-  if (pre_command) {
-    script.run[1].params.message = [pre_command].concat(script.run[1].params.message)
   }
   return script
 }
